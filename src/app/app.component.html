@@ -1,0 +1,43 @@
+<nz-layout class="app-layout">
+  <nz-drawer
+    *ngIf="isHandset$ | async"
+    [nzBodyStyle]="{
+      height: '100%',
+      overflow: 'auto',
+      padding: '0',
+      background: '#021429'
+    }"
+    [nzClosable]="false"
+    [nzVisible]="!isCollapsed"
+    nzPlacement="left"
+    (nzOnClose)="isCollapsed = true"
+  >
+    <app-side-menu></app-side-menu>
+  </nz-drawer>
+  <nz-sider *ngIf="!(isHandset$ | async)"
+    class="menu-sidebar"
+    nzCollapsible
+    nzWidth="256px"
+    nzBreakpoint="lg"
+    [(nzCollapsed)]="isCollapsed"
+    [nzTrigger]="null">
+    <app-side-menu [isCollapsed]="isCollapsed"></app-side-menu>
+  </nz-sider>
+  <nz-layout>
+    <nz-header>
+      <div class="app-header">
+        <span class="header-trigger" (click)="isCollapsed = !isCollapsed">
+            <i class="trigger"
+               nz-icon
+               [nzType]="isCollapsed ? 'menu-unfold' : 'menu-fold'"
+            ></i>
+        </span>
+      </div>
+    </nz-header>
+    <nz-content>
+      <div class="inner-content">
+        <router-outlet></router-outlet>
+      </div>
+    </nz-content>
+  </nz-layout>
+</nz-layout>
