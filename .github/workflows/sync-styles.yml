@@ -1,0 +1,12 @@
+name: Synchronize Ant Design Styles
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: hsuanxyz/antd-styles-sync-action@v1
+        with:
+          account_token: ${{ secrets.BOT_TOKEN }}
