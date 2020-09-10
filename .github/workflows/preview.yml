@@ -1,13 +1,13 @@
 name: 🔂 Surge PR Preview
 
-on: [push, pull_request]
+on: [push, pull_request_target]
 
 jobs:
   preview:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: hsuanxyz/surge-preview@v2.0.4
+      - uses: hsuanxyz/surge-preview@v2.0.6
         with:
           surge_token: ${{ secrets.SURGE_TOKEN }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
