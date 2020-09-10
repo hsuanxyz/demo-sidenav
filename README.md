@@ -1,7 +1,7 @@
 <p align="center">
   <img alt="sidenav" width="800" src="sidenav.gif">
 </p>
-HEllo
+
 # Sidenav
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.0.3.
